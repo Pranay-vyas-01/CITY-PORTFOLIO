@@ -1,0 +1,216 @@
+/**
+ * PRANAY VYAS — DIGITAL CITY PORTFOLIO
+ * CORE DESIGN SYSTEM & TOKENS (MIDNIGHT VIOLET IDENTITY)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+
+:root {
+  /* Midnight Violet Color Palette */
+  --bg-deep: #06050e;
+  --bg-surface: #0b0916;
+  --bg-surface-elevated: #130f24;
+  --bg-card: rgba(19, 15, 36, 0.72);
+  --bg-glass: rgba(14, 11, 28, 0.68);
+  --border-subtle: rgba(139, 92, 246, 0.16);
+  --border-glow: rgba(167, 139, 250, 0.35);
+  --border-active: #8b5cf6;
+
+  /* Primary Violet Accents */
+  --violet-primary: #8b5cf6;
+  --violet-deep: #6d28d9;
+  --violet-dark: #4c1d95;
+  --violet-light: #a78bfa;
+  --lavender-glow: #c4b5fd;
+  --lavender-highlight: #ddd6fe;
+
+  /* Auxiliary Tones */
+  --blue-accent: #38bdf8;
+  --pink-accent: #ec4899;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-code: #c4b5fd;
+
+  /* Typography */
+  --font-display: 'Syne', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Transitions & Shadows */
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-glow: 0 0 25px rgba(139, 92, 246, 0.22);
+  --shadow-elevated: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Light / Dawn Mode Variables */
+body.light-mode {
+  --bg-deep: #0f0c1e;
+  --bg-surface: #18132d;
+  --bg-surface-elevated: #241c42;
+  --bg-card: rgba(36, 28, 66, 0.82);
+  --bg-glass: rgba(26, 20, 50, 0.8);
+  --border-subtle: rgba(167, 139, 250, 0.28);
+  --border-glow: rgba(196, 181, 253, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --lavender-glow: #ddd6fe;
+}
+
+/* High Contrast Mode */
+body.high-contrast {
+  --border-subtle: #a78bfa;
+  --border-glow: #ffffff;
+  --text-secondary: #f1f5f9;
+  --text-muted: #cbd5e1;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Typography Standards */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Buttons System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.btn-sm {
+  padding: 0.5rem 0.95rem;
+  font-size: 0.78rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: 1px solid rgba(196, 181, 253, 0.4);
+  box-shadow: 0 4px 18px rgba(109, 40, 217, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  border-color: var(--lavender-glow);
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(19, 15, 36, 0.85);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(30, 24, 56, 0.9);
+  border-color: var(--violet-light);
+  color: var(--lavender-highlight);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--lavender-glow);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-outline:hover {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: var(--violet-light);
+  color: #ffffff;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(2px);
+}
+
+/* Glassmorphism Card Utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+/* Monospace Badges & Technical Indicators */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid var(--border-subtle);
+  color: var(--lavender-glow);
+}
+
+/* Focus Visible */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--violet-light);
+  outline-offset: 3px;
+}
